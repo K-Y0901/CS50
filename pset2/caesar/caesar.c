@@ -18,6 +18,18 @@ int main(int argc, string argv[])
     printf("ciphertext: ");
     for (int i = 0; text[i] != "\0"; i++)
     {
-        
+        if (text[i] >= 'a' && text[i] <= 'z')
+        {
+            printf("%c", 'a' + ((text[i] - 'a' + key) % 26));
+        }
+        else if (text[i] >= 'A' && text[i] <= 'Z')
+        {
+            printf("%c", 'A' + ((text[i]) - 'A' + key) % 26));
+        }
+        else{
+            printf("%c", text[i]);
+        }
     }
+    printf("\n");
+    return 0;
 }
