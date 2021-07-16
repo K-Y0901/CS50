@@ -46,3 +46,17 @@ int count_letters(string letters)
     }
     return count;
 }
+
+int count_words(string words)
+{
+    int count = 0;
+    for (in i = 0, len = strlen(words); i < len; i++)
+    {
+        if (words[i] == 32)
+        {
+            count++;
+        }
+    }
+    return count + 1;
+}
+
