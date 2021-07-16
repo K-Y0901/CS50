@@ -34,3 +34,15 @@ int main(void)
     }
 }
 
+int count_letters(string letters)
+{
+    int count = 0;
+    for (int i = 0, len = strlen(letters); i < len; i++)
+    {
+        if ((letters[i] > 64 && letters[i] < 91) || (letters[i] > 96 && letters[i] < 123))
+        {
+            count++;
+        }
+    }
+    return count;
+}
