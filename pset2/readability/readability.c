@@ -60,3 +60,15 @@ int count_words(string words)
     return count + 1;
 }
 
+int count_sentences(string sentences)
+{
+    int count = 0;
+    for (int i = 0, len = strlen(sentences); i < len; i++)
+    {
+        if ((sentences[i] == 33) || (sentences[i] == 63) || (sentences[i] == 46))
+        {
+            count++;
+        }
+    }
+    return count;
+}
