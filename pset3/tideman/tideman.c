@@ -178,13 +178,43 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // TODO
+    for (int i = 0; i < pair_count; i++)
+    {
+        locked[pairs[i].winner][pairs[i].loser] = true;
+        if (check_cycle(pairs[i].winner, pairs[i].loser) == true)
+        {
+            locked[pairs[i].winner][pairs[i].loser] = false;
+        }
+    }
     return;
+}
+
+bool check_cycle(int start, int end)
+{
+    if (start == end)
+    {
+        return true;
+    }
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (locked[end][i] == true)
+        {
+            if (check_cycle(start, i) == true)
+            {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }
 
 // Print the winner of the election
 void print_winner(void)
 {
     // TODO
+    
     return;
 }
 
