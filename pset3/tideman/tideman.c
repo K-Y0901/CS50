@@ -214,7 +214,22 @@ bool check_cycle(int start, int end)
 void print_winner(void)
 {
     // TODO
-    
+    for (int i = 0; i < candidate_count; i++)
+    {
+        int count = 0;
+        for (int j = 0; j < candidate_count; j++)
+        {
+            if (locked[j][i] == false)
+            {
+                count++;
+            }
+        }
+
+        if (count == candidate_count)
+        {
+            printf("%s\n", candidates[i]);
+        }
+    }
     return;
 }
 
