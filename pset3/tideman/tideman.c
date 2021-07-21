@@ -147,7 +147,24 @@ void add_pairs(void)
 }
 
 
-
+int compare_pair(const void *a, const void *b)
+{
+    const pair *pa = (const pair *)a;
+    const pair *pb = (const pair *)b;
+    int diff_a = preferences[pa->winner][pa->loser]
+                 - preferences[pa->loser][pa->winner];
+    int diff_b = preferences[pb->winner][pb->loser]
+                 - preferences[pb->loser][pb->winner];
+    if (diff_a > diff_b)
+    {
+        return -1; // pa is ahead of pb
+    }
+    if (diff_a < diff_b)
+    {
+        return 1; // pa is later than pb
+    }
+    return 0;
+}
 
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
