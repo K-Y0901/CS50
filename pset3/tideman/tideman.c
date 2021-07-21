@@ -170,6 +170,7 @@ int compare_pair(const void *a, const void *b)
 void sort_pairs(void)
 {
     // TODO
+    qsort(pairs, pair_count, sizeof(pair), compare_pair);
     return;
 }
 
